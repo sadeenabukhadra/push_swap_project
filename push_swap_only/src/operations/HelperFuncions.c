@@ -35,6 +35,7 @@ int	find_min_pos(t_stack *a)
 	}
 	return (pos);
 }
+
 void	push_min_to_b(t_stack *a, t_stack *b)
 {
 	int	pos;
@@ -78,6 +79,7 @@ int	find_max_pos(t_stack *b)
 	}
 	return (max_pos);
 }
+
 void	move_max_to_top(t_stack *b, int pos)
 {
 	if (pos <= b->size / 2)

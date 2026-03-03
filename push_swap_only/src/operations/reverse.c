@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all.c                                         :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabu-kha <sabu-kha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/02 17:10:02 by sabu-kha          #+#    #+#             */
-/*   Updated: 2026/03/03 16:42:31 by sabu-kha         ###   ########.fr       */
+/*   Created: 2026/03/03 16:01:17 by sabu-kha          #+#    #+#             */
+/*   Updated: 2026/03/03 16:01:20 by sabu-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../push_swap.h"
 
-void	free_stack(t_stack *stack)
+void	rra(t_stack *a)
 {
-	t_node	*tmp;
-
-	while (stack->top)
-	{
-		tmp = stack->top;
-		stack->top = stack->top->next;
-		free(tmp);
-	}
-	stack->size = 0;
+	reverse_rotate(a);
+	write(1, "rra\n", 4);
 }
 
-void	free_all_stacks(t_stack *a, t_stack *b)
+void	rrb(t_stack *b)
 {
-	if (a)
-		free_stack(a);
-	if (b)
-		free_stack(b);
+	reverse_rotate(b);
+	write(1, "rrb\n", 4);
 }

@@ -41,7 +41,9 @@ void push_min_to_b(t_stack *a,t_stack *b);
 int find_max_pos(t_stack *b);
 void move_max_to_top(t_stack *b, int pos);
 void radix_sort(t_stack *a, t_stack *b);
-
+int find_insert_pos(t_stack *b, int index);
+void insertion_sort(t_stack *a,t_stack *b);
+void free_all_stacks(t_stack *a, t_stack *b);
 
 
 #endif

@@ -52,6 +52,7 @@ void	sort_three(t_stack *a)
 	else if (first < second && second > third && first > third)
 		rra(a);
 }
+
 void	sort_five(t_stack *a, t_stack *b)
 {
 	push_min_to_b(a, b);

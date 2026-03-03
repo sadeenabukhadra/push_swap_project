@@ -39,6 +39,7 @@ void	push(t_stack *src, t_stack *dest)
 	dest->top = tmp;
 	dest->size++;
 }
+
 void	rotate(t_stack *stack)
 {
 	t_node	*first;
@@ -54,6 +55,7 @@ void	rotate(t_stack *stack)
 	first->next = NULL;
 	last->next = first;
 }
+
 void	reverse_rotate(t_stack *stack)
 {
 	t_node	*prev;
