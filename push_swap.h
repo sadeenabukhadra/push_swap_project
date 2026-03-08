@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 
+
 typedef struct s_node
 {
     int             value;
@@ -44,7 +45,17 @@ void radix_sort(t_stack *a, t_stack *b);
 int find_insert_pos(t_stack *b, int index);
 void insertion_sort(t_stack *a,t_stack *b);
 void free_all_stacks(t_stack *a, t_stack *b);
-
+char	**ft_split(char const *s, char c);
+int	ft_atoi(const char *s);
+void	free_all_stacks(t_stack *a, t_stack *b);
+void	init_stack(t_stack *a, int *numbers, int count);
+void check_duplicates(int *arr, int size);
+void error_exit(void);
+long ft_atol(char *str);
+int is_valid_number(char *str);
+int	ft_isdigit(int c);
+void parse_input(int ac, char *argv, t_stack *a);
+char **split_args(char *arg);
 
 #endif
 
