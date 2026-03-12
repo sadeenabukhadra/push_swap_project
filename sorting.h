@@ -28,5 +28,8 @@ void move_max_to_top(t_stack *b, int pos);
 void radix_sort(t_stack *a, t_stack *b);
 int find_insert_pos(t_stack *b, int index);
 void insertion_sort(t_stack *a,t_stack *b);
-
+double compute_disorder(int *arr, int size);
+int get_total_ops(t_ops *ops);
+static void print_operations(t_ops *ops);
+void	print_bench(double disorder, char *strategy, t_ops *ops);
 #endif
