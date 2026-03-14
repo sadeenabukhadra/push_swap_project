@@ -13,9 +13,7 @@
 
 static int	word_count(char const *s, char c)
 {
-	int	count;
-
-	count = 0;
+	int	count = 0;
 	while (*s)
 	{
 		if (*s != c)
@@ -33,33 +31,30 @@ static int	word_count(char const *s, char c)
 static char	*copy_word(char const *s, int start, int end)
 {
 	char	*word;
-	int		i;
+	int		i = 0;
 
-	word = (char *)malloc(end - start + 1);
+	word = malloc(end - start + 1);
 	if (!word)
 		return (NULL);
-	i = 0;
 	while (start < end)
 		word[i++] = s[start++];
 	word[i] = '\0';
 	return (word);
 }
 
-static void	free_all(char **arr, int i)
+char	**ft_split(char const *s, char c)
 {
-	while (i >= 0)
-		free(arr[i--]);
-	free(arr);
-}
+	char	**res;
+	int		i = 0;
+	int		start = 0;
+	int		end = 0;
 
-static int	fill_split(char **res, char const *s, char c)
-{
-	int	i;
-	int	start;
-	int	end;
+	if (!s)
+		return (NULL);
+	res = malloc((word_count(s, c) + 1) * sizeof(char *));
+	if (!res)
+		return (NULL);
 
-	i = 0;
-	end = 0;
 	while (s[end])
 	{
 		while (s[end] == c)
@@ -68,27 +63,8 @@ static int	fill_split(char **res, char const *s, char c)
 		while (s[end] && s[end] != c)
 			end++;
 		if (end > start)
-		{
-			res[i] = copy_word(s, start, end);
-			if (!res[i])
-				return (free_all(res, i - 1), 0);
-			i++;
-		}
+			res[i++] = copy_word(s, start, end);
 	}
 	res[i] = NULL;
-	return (1);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**res;
-
-	if (!s)
-		return (NULL);
-	res = (char **)malloc((word_count(s, c) + 1) * sizeof(char *));
-	if (!res)
-		return (NULL);
-	if (!fill_split(res, s, c))
-		return (NULL);
 	return (res);
 }

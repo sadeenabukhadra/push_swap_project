@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+#include <stdlib.h>
 
 void	check_duplicates(int *arr, int size)
 {
-	int	i;
-	int	j;
+	int i, j;
 
+	// Simple O(n^2)
 	i = 0;
 	while (i < size)
 	{
@@ -24,9 +25,7 @@ void	check_duplicates(int *arr, int size)
 		while (j < size)
 		{
 			if (arr[i] == arr[j])
-			{
 				error_exit();
-			}
 			j++;
 		}
 		i++;
