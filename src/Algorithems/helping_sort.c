@@ -6,13 +6,13 @@
 /*   By: sabu-kha <sabu-kha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 14:25:06 by sabu-kha          #+#    #+#             */
-/*   Updated: 2026/03/03 14:25:09 by sabu-kha         ###   ########.fr       */
+/*   Updated: 2026/03/14 15:28:09 by sabu-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int 	find_insert_pos(t_stack *b, int index)
+int	find_insert_pos(t_stack *b, int index)
 {
 	t_node	*tmp;
 	int		pos;
@@ -29,6 +29,15 @@ int 	find_insert_pos(t_stack *b, int index)
 		pos++;
 	}
 	return (pos);
+}
+
+void	push_back(t_stack *a, t_stack *b, t_ops *ops)
+{
+	while (b->size > 0)
+	{
+		pa(a, b);
+		ops->pa++;
+	}
 }
 
 // int find_min_pos(t_stack *a)

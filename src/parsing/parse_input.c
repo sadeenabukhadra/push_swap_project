@@ -6,14 +6,16 @@
 /*   By: sabu-kha <sabu-kha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 19:33:44 by sabu-kha          #+#    #+#             */
-/*   Updated: 2026/03/08 19:33:54 by sabu-kha         ###   ########.fr       */
+/*   Updated: 2026/03/14 15:17:54 by sabu-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../push_swap.h"
 
 static int	count_args(char **args)
 {
-	int	i = 0;
+	int	i;
+
+	i = 0;
 	while (args[i])
 		i++;
 	return (i);
@@ -46,7 +48,9 @@ static int	*convert_numbers(char **args, int count)
 // free_split
 void	free_split(char **split)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (split[i])
 		free(split[i++]);
 	free(split);
@@ -60,7 +64,6 @@ void	parse_input(int ac, char **argv, t_stack *a)
 
 	if (ac < 2)
 		exit(0);
-
 	if (ac == 2)
 	{
 		args = split_args(argv[1]);
@@ -68,7 +71,7 @@ void	parse_input(int ac, char **argv, t_stack *a)
 		numbers = convert_numbers(args, count);
 		init_stack(a, numbers, count);
 		free(numbers);
-		free_split(args); // لازم يكون داخل {}
+		free_split(args);
 	}
 	else
 	{

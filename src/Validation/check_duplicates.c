@@ -6,7 +6,7 @@
 /*   By: sabu-kha <sabu-kha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 19:35:41 by sabu-kha          #+#    #+#             */
-/*   Updated: 2026/03/08 19:35:43 by sabu-kha         ###   ########.fr       */
+/*   Updated: 2026/03/14 15:27:08 by sabu-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void	check_duplicates(int *arr, int size)
 {
-	int i, j;
+	int	i;
+	int	j;
 
-	// Simple O(n^2)
 	i = 0;
 	while (i < size)
 	{

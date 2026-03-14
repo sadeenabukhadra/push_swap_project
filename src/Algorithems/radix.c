@@ -6,43 +6,51 @@
 /*   By: sabu-kha <sabu-kha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 15:30:35 by sabu-kha          #+#    #+#             */
-/*   Updated: 2026/03/03 15:30:38 by sabu-kha         ###   ########.fr       */
+/*   Updated: 2026/03/14 17:04:40 by sabu-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void radix_sort(t_stack *a, t_stack *b, t_ops *ops)
+#include "../../push_swap.h"
+
+static void	process_bit(t_stack *a, t_stack *b, t_ops *ops, int bit)
 {
-    int i, j, size, max_bits;
+	int	j;
+	int	size;
 
-    size = a->size;
-    max_bits = 0;
-    while ((size >> max_bits) != 0)
-        max_bits++;
+	size = a->size;
+	j = 0;
+	while (j++ < size)
+	{
+		if (((a->top->index >> bit) & 1) == 1)
+		{
+			ra(a);
+			ops->ra++;
+		}
+		else
+		{
+			pb(a, b);
+			ops->pb++;
+		}
+	}
+}
 
-    i = 0;
-    while (i < max_bits)
-    {
-        j = 0;
-        while (j++ < size)
-        {
-            if (((a->top->index >> i) & 1) == 1)
-            {
-                ra(a);
-                ops->ra++;
-            }
-            else
-            {
-                pb(a, b);
-                ops->pb++;
-            }
-        }
-        while (b->size > 0)
-        {
-            pa(a, b);
-            ops->pa++;
-        }
-        i++;
-    }
+void	radix_sort(t_stack *a, t_stack *b, t_ops *ops)
+{
+	int	i;
+	int	max_bits;
+	int	size;
+
+	size = a->size;
+	max_bits = 0;
+	while ((size >> max_bits) != 0)
+		max_bits++;
+	i = 0;
+	while (i < max_bits)
+	{
+		process_bit(a, b, ops, i);
+		push_back(a, b, ops);
+		i++;
+	}
 }

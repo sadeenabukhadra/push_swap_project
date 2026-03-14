@@ -30,10 +30,12 @@ void push_min_to_b(t_stack *a, t_stack *b, t_ops *ops);
 int find_max_pos(t_stack *b);
 void move_max_to_top(t_stack *b, int pos, t_ops *ops);
 
+void	push_back(t_stack *a, t_stack *b, t_ops *ops);
 int find_insert_pos(t_stack *b, int index);
 void insertion_sort(t_stack *a, t_stack *b, t_ops *ops);
 void radix_sort(t_stack *a, t_stack *b, t_ops *ops);
 void range_sort(t_stack *a, t_stack *b, t_ops *ops);
+
 
 void index_stack(t_stack *a);
 
