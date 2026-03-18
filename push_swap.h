@@ -69,6 +69,7 @@ int		ft_atoi(const char *s);
 int		ft_isdigit(int c);
 void	init_stack(t_stack *a, int *numbers, int count);
 void	free_all_stacks(t_stack *a, t_stack *b);
+void	free_stack(t_stack *stack);
 char	**split_args(char *arg);
 void	free_split(char **split);
 

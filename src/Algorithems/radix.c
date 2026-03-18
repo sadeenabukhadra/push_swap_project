@@ -12,8 +12,6 @@
 
 #include "../../push_swap.h"
 
-#include "../../push_swap.h"
-
 static void	process_bit(t_stack *a, t_stack *b, t_ops *ops, int bit)
 {
 	int	j;
